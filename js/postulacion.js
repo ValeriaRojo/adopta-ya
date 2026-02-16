@@ -1,210 +1,325 @@
-// postulacion.js - Modulo para gestionar el formulario de postulación
+// Datos de mascotas 
+const mascotas = [
+    { id: 1, nombre: "Max", raza: "Golden Retriever" },
+    { id: 2, nombre: "Luna", raza: "Gato Persa" },
+    { id: 3, nombre: "Rocky", raza: "Pastor Alemán" },
+    { id: 4, nombre: "Misu", raza: "Gato Negro" },
+    { id: 5, nombre: "Bella", raza: "Labrador" },
+    { id: 6, nombre: "Félix", raza: "Gato Atigrado" },
+    { id: 7, nombre: "Toby", raza: "Beagle" },
+    { id: 8, nombre: "Nala", raza: "Gato Siamés" },
+    { id: 9, nombre: "Cooper", raza: "Cocker Spaniel" },
+    { id: 10, nombre: "Simba", raza: "Gato Naranja" },
+    { id: 11, nombre: "Rex", raza: "Chihuahua" },
+    { id: 12, nombre: "Garfield", raza: "Gato Anaranjado" }
+];
 
-const postulaciones = [];
+// Formulario
+const formulario = document.getElementById('formulario-postulacion');
+const campoNombre = document.getElementById('nombre-completo');
+const campoEmail = document.getElementById('email');
+const campoMascota = document.getElementById('mascota-seleccionada');
+const campoExperiencia = document.getElementById('experiencia-mascotas');
+const campoEvidencia = document.getElementById('evidencia-domicilio');
+const botonEnviar = document.getElementById('boton-enviar');
 
-function mostrarFormularioPostulacion() {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    
-    if (!id) {
-        document.body.innerHTML = '<div class="alert alert-danger m-5">Mascota no encontrada</div>';
-        return;
-    }
+// Alerta
+const alertaExito = document.getElementById('alerta-exito');
+const alertaError = document.getElementById('alerta-error');
+const textoError = document.getElementById('texto-error');
 
-    const mascota = obtenerMascota(id);
-    
-    if (!mascota) {
-        document.body.innerHTML = '<div class="alert alert-danger m-5">Mascota no encontrada</div>';
-        return;
-    }
+// Información de mascota
+const infoMascota = document.getElementById('info-mascota');
+const nombreMascota = document.getElementById('nombre-mascota');
+const razaMascota = document.getElementById('raza-mascota');
 
-    const container = document.getElementById('form-container');
-    if (container) {
-        container.innerHTML = `
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body text-center">
-                            <div style="font-size: 100px; background-color: ${mascota.color}; padding: 20px; border-radius: 10px;">
-                                ${mascota.emoji}
-                            </div>
-                            <h5 class="mt-3 fw-bold">${mascota.nombre}</h5>
-                            <p class="text-muted">${mascota.raza}</p>
-                            <div class="alert alert-info mt-3">
-                                <small>Estás a punto de postularte para adoptar a <strong>${mascota.nombre}</strong></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+// Función para cargar el select de mascotas
+function cargarMascotas() {
+    mascotas.forEach(mascota => {
+        const option = document.createElement('option');
+        option.value = mascota.id;
+        option.textContent = `${mascota.nombre} (${mascota.raza})`;
+        campoMascota.appendChild(option);
+    });
 
-                <div class="col-lg-8">
-                    <form id="formulario-postulacion">
-                        <h4 class="fw-bold mb-4">Formulario de Postulación para Adopción</h4>
-                        
-                        <!-- Información Personal -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-header bg-danger text-white">
-                                <h6 class="mb-0">Información Personal</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="nombre" class="form-label">Nombre Completo *</label>
-                                        <input type="text" class="form-control" id="nombre" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Email *</label>
-                                        <input type="email" class="form-control" id="email" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="telefono" class="form-label">Teléfono *</label>
-                                        <input type="tel" class="form-control" id="telefono" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="edad" class="form-label">Edad *</label>
-                                        <input type="number" class="form-control" id="edad" min="18" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Información del Hogar -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-header bg-danger text-white">
-                                <h6 class="mb-0">Información del Hogar</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="direccion" class="form-label">Dirección *</label>
-                                    <input type="text" class="form-control" id="direccion" required>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="ciudad" class="form-label">Ciudad *</label>
-                                        <input type="text" class="form-control" id="ciudad" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="tipoVivienda" class="form-label">Tipo de Vivienda *</label>
-                                        <select class="form-select" id="tipoVivienda" required>
-                                            <option value="">Seleccionar...</option>
-                                            <option value="casa">Casa</option>
-                                            <option value="apartamento">Apartamento</option>
-                                            <option value="otro">Otro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tenantesHogar" class="form-label">¿Cuántas personas viven en tu hogar? *</label>
-                                    <input type="number" class="form-control" id="tenantesHogar" min="1" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Información sobre Mascotas -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-header bg-danger text-white">
-                                <h6 class="mb-0">Sobre Mascotas</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="experienciaMascotas" class="form-label">¿Experiencia anterior con mascotas? *</label>
-                                    <select class="form-select" id="experienciaMascotas" required>
-                                        <option value="">Seleccionar...</option>
-                                        <option value="mucha">Mucha</option>
-                                        <option value="algo">Algo</option>
-                                        <option value="poca">Poca</option>
-                                        <option value="ninguna">Ninguna</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="mascotas" class="form-label">¿Tienes otras mascotas? *</label>
-                                    <select class="form-select" id="mascotas" required>
-                                        <option value="">Seleccionar...</option>
-                                        <option value="si">Sí</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3" id="detallesMascotas" style="display: none;">
-                                    <label for="descripcionMascotas" class="form-label">Describe tus mascotas</label>
-                                    <textarea class="form-control" id="descripcionMascotas" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Información Adicional -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-header bg-danger text-white">
-                                <h6 class="mb-0">Información Adicional</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label for="razon" class="form-label">¿Por qué deseas adoptar a ${mascota.nombre}? *</label>
-                                    <textarea class="form-control" id="razon" rows="4" required></textarea>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="terminos" required>
-                                    <label class="form-check-label" for="terminos">
-                                        Acepto los términos y condiciones de adopción *
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-grid gap-2 d-sm-flex">
-                            <button type="submit" class="btn btn-danger btn-lg">Enviar Postulación</button>
-                            <a href="detalle.html?id=${mascota.id}" class="btn btn-outline-danger btn-lg">Cancelar</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        `;
-
-        // Agregar evento al formulario
-        document.getElementById('formulario-postulacion').addEventListener('submit', function(e) {
-            e.preventDefault();
-            guardarPostulacion(id);
-        });
-
-        // Mostrar/ocultar detalles de mascotas
-        document.getElementById('mascotas').addEventListener('change', function() {
-            document.getElementById('detallesMascotas').style.display = this.value === 'si' ? 'block' : 'none';
-        });
+    // Verificar si hay parámetro de mascota en URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const mascotaId = urlParams.get('mascota');
+    if (mascotaId) {
+        campoMascota.value = mascotaId;
+        mostrarInfoMascota();
     }
 }
 
-function guardarPostulacion(idMascota) {
+// Función para mostrar información de la mascota seleccionada
+function mostrarInfoMascota() {
+    const mascotaSeleccionada = mascotas.find(m => m.id == campoMascota.value);
+    
+    if (mascotaSeleccionada) {
+        nombreMascota.textContent = mascotaSeleccionada.nombre;
+        razaMascota.textContent = mascotaSeleccionada.raza;
+        infoMascota.classList.add('mostrar');
+    } else {
+        infoMascota.classList.remove('mostrar');
+    }
+}
+
+// Validación de nombre (solo letras y espacios)
+function validarNombre(nombre) {
+    const regex = /^[a-záéíóúñA-ZÁÉÍÓÚÑ\s]+$/;
+    return regex.test(nombre.trim());
+}
+
+// Validación de email con formato correcto
+function validarEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email.trim());
+}
+
+// Validación de URL
+function validarURL(url) {
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+// Validación individual de campos
+function validarCampo(campo) {
+    const errorElement = document.getElementById(`error-${campo.name}`);
+    let esValido = true;
+    let mensaje = '';
+
+    if (!errorElement) return true;
+
+    switch (campo.name) {
+        case 'nombre':
+            if (!campo.value.trim()) {
+                esValido = false;
+                mensaje = 'El nombre completo es obligatorio';
+            } else if (campo.value.trim().length < 3) {
+                esValido = false;
+                mensaje = 'El nombre debe tener al menos 3 caracteres';
+            } else if (!validarNombre(campo.value.trim())) {
+                esValido = false;
+                mensaje = 'Solo se permiten letras y espacios (sin números ni caracteres especiales)';
+            }
+            break;
+
+        case 'email':
+            if (!campo.value.trim()) {
+                esValido = false;
+                mensaje = 'El email es obligatorio';
+            } else if (!validarEmail(campo.value.trim())) {
+                esValido = false;
+                mensaje = 'Correo no válido. Usa el formato: ejemplo@correo.com';
+            }
+            break;
+
+        case 'mascota':
+            if (!campo.value) {
+                esValido = false;
+                mensaje = 'Debes seleccionar una mascota';
+            }
+            break;
+
+        case 'experiencia':
+            if (!campo.value.trim()) {
+                esValido = false;
+                mensaje = 'Este campo es obligatorio';
+            } else if (campo.value.trim().length < 20) {
+                esValido = false;
+                mensaje = 'La experiencia debe tener al menos 20 caracteres';
+            }
+            break;
+
+        case 'evidencia':
+            if (campo.value.trim() && !validarURL(campo.value.trim())) {
+                esValido = false;
+                mensaje = 'Por favor ingresa una URL válida';
+            }
+            break;
+    }
+
+    // Mostrar/ocultar error
+    if (esValido) {
+        errorElement.classList.remove('mostrar');
+        campo.classList.remove('error');
+        campo.classList.add('exito');
+    } else {
+        errorElement.textContent = mensaje;
+        errorElement.classList.add('mostrar');
+        campo.classList.add('error');
+        campo.classList.remove('exito');
+    }
+
+    return esValido;
+}
+
+// Validación completa del formulario
+function validarFormulario() {
+    const campos = [
+        campoNombre,
+        campoEmail,
+        campoMascota,
+        campoExperiencia,
+        campoEvidencia
+    ];
+
+    let todosValidos = true;
+    
+    campos.forEach(campo => {
+        if (!validarCampo(campo)) {
+            todosValidos = false;
+        }
+    });
+
+    return todosValidos;
+}
+
+// Función para guardar postulación en localStorage
+function guardarPostulacion() {
+    const mascotaSeleccionada = mascotas.find(m => m.id == campoMascota.value);
+    
     const postulacion = {
         id: Date.now(),
-        mascotaId: idMascota,
-        nombre: document.getElementById('nombre').value,
-        email: document.getElementById('email').value,
-        telefono: document.getElementById('telefono').value,
-        edad: document.getElementById('edad').value,
-        direccion: document.getElementById('direccion').value,
-        ciudad: document.getElementById('ciudad').value,
-        tipoVivienda: document.getElementById('tipoVivienda').value,
-        tenantesHogar: document.getElementById('tenantesHogar').value,
-        experienciaMascotas: document.getElementById('experienciaMascotas').value,
-        mascotas: document.getElementById('mascotas').value,
-        descripcionMascotas: document.getElementById('descripcionMascotas').value,
-        razon: document.getElementById('razon').value,
-        fecha: new Date().toLocaleDateString('es-ES'),
-        estado: 'pendiente'
+        fecha: new Date().toLocaleString('es-ES'),
+        nombre: campoNombre.value.trim(),
+        email: campoEmail.value.trim(),
+        mascotaId: parseInt(campoMascota.value),
+        mascotaNombre: mascotaSeleccionada.nombre,
+        mascotaRaza: mascotaSeleccionada.raza,
+        experiencia: campoExperiencia.value.trim(),
+        evidencia: campoEvidencia.value.trim() || null
     };
 
-    // Guardar en localStorage
-    let postulacionesGuardadas = JSON.parse(localStorage.getItem('adoppostulaciones') || '[]');
-    postulacionesGuardadas.push(postulacion);
-    localStorage.setItem('adoppostulaciones', JSON.stringify(postulacionesGuardadas));
-
-    // Mostrar mensaje de éxito
-    alert('¡Postulación enviada exitosamente! Nos pondremos en contacto pronto.');
+    // Obtener postulaciones existentes
+    let postulaciones = JSON.parse(localStorage.getItem('postulaciones')) || [];
     
-    // Redirigir a postulaciones
-    window.location.href = 'postulaciones.html';
+    // Agregar nueva postulación
+    postulaciones.push(postulacion);
+    
+    // Guardar en localStorage
+    localStorage.setItem('postulaciones', JSON.stringify(postulaciones));
+
+    return postulacion;
 }
 
-// Cargar formulario al cargar la página
-document.addEventListener('DOMContentLoaded', mostrarFormularioPostulacion);
+// Función para mostrar alerta de éxito
+function mostrarAlertaExito() {
+    alertaExito.classList.add('mostrar');
+    alertaError.classList.remove('mostrar');
+    
+    // Ocultar alerta después de 5 segundos
+    setTimeout(() => {
+        alertaExito.classList.remove('mostrar');
+    }, 5000);
+}
+
+// Función para mostrar alerta de error
+function mostrarAlertaError(mensaje) {
+    textoError.textContent = mensaje;
+    alertaError.classList.add('mostrar');
+    alertaExito.classList.remove('mostrar');
+}
+
+// Cambio de mascota
+campoMascota.addEventListener('change', mostrarInfoMascota);
+
+// Bloquear números y caracteres especiales en el nombre
+campoNombre.addEventListener('keypress', function(e) {
+    const regex = /^[a-záéíóúñA-ZÁÉÍÓÚÑ\s]$/;
+    if (!regex.test(e.key)) {
+        e.preventDefault();
+    }
+});
+
+// Bloquear pegado de números y caracteres especiales en el nombre
+campoNombre.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const texto = (e.clipboardData || window.clipboardData).getData('text');
+    const regex = /^[a-záéíóúñA-ZÁÉÍÓÚÑ\s]*$/;
+    if (regex.test(texto)) {
+        document.execCommand('insertText', false, texto);
+    }
+});
+
+// Validaciones con forme se van escribiendo en los campos
+campoNombre.addEventListener('blur', () => validarCampo(campoNombre));
+campoNombre.addEventListener('input', () => validarCampo(campoNombre));
+
+campoEmail.addEventListener('blur', () => validarCampo(campoEmail));
+campoEmail.addEventListener('input', () => validarCampo(campoEmail));
+
+campoMascota.addEventListener('change', () => validarCampo(campoMascota));
+
+campoExperiencia.addEventListener('blur', () => validarCampo(campoExperiencia));
+campoExperiencia.addEventListener('input', () => validarCampo(campoExperiencia));
+
+campoEvidencia.addEventListener('blur', () => validarCampo(campoEvidencia));
+campoEvidencia.addEventListener('input', () => validarCampo(campoEvidencia));
+
+// Envío del formulario
+formulario.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validar formulario
+    if (!validarFormulario()) {
+        mostrarAlertaError('Por favor revisa los campos requeridos');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+
+    // Guardar postulación
+    const postulacion = guardarPostulacion();
+
+    // Mostrar alerta de éxito
+    mostrarAlertaExito();
+
+    // Mostrar datos guardados en consola
+    console.log('Postulación guardada:', postulacion);
+    console.log('Todas las postulaciones:', JSON.parse(localStorage.getItem('postulaciones')));
+
+    // Limpiar formulario
+    formulario.reset();
+    
+    // Limpiar clases de validación
+    [campoNombre, campoEmail, campoMascota, campoExperiencia, campoEvidencia].forEach(campo => {
+        campo.classList.remove('error', 'exito');
+    });
+
+    // Redirigir después de 2.5 segundos
+    setTimeout(() => {
+        window.location.href = 'index.html#catalogo';
+    }, 2500);
+});
+
+// Inicializar cuando el documento esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    cargarMascotas();
+});
+
+
+        // Funcionalidad del menú móvil
+        const toggleMenu = document.getElementById('toggle-menu');
+        const menuMovil = document.getElementById('menu-movil');
+        const enlacesMenu = document.querySelectorAll('.enlace-menu-movil');
+
+        if (toggleMenu && menuMovil) {
+            toggleMenu.addEventListener('click', () => {
+                menuMovil.classList.toggle('activo');
+            });
+
+            enlacesMenu.forEach(enlace => {
+                enlace.addEventListener('click', () => {
+                    menuMovil.classList.remove('activo');
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                menuMovil.classList.remove('activo');
+            });
+        }
+

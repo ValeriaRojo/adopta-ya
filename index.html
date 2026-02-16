@@ -3,242 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AdopYa - Encuentra tu mascota perfecta. Adopta mascotas responsablemente y cambia vidas.">
     <title>Inicio - AdopYa</title>
-    <!-- Bootstrap CSS Local -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/estilos-nuevo.css">
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="assets/bootstrap/icons/bootstrap-icons-1.13.1/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background-color: #FF6B6B;">
-        <div class="container-lg">
-            <a class="navbar-brand fw-bold text-white" href="index.html">
-                AdopYa 🐾
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-2">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="postulaciones.html">Mi Postulación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                </ul>
+    <!-- NavBar -->
+    <header class="encabezado">
+        <div class="container">
+            <nav class="barra-navegacion">
+                <a href="#" class="logotipo">AdopYa</a>
+                <div class="menu-desktop d-none d-lg-flex align-items-center">
+                    <a href="#caracteristicas" class="enlace-navegacion">Características</a>
+                    <a href="#catalogo" class="enlace-navegacion">Mascotas</a>
+                    <a href="#como-funciona" class="enlace-navegacion">Cómo Funciona</a>
+                    <a href="catalogo.html" class="enlace-navegacion">Catálogo</a>
+                    <a href="contacto.html" class="enlace-navegacion">Contacto</a>
+                    <a href="postulaciones.html" class="enlace-navegacion">Postulaciones</a>
+                    <a href="postulacion.html" class="boton-primario ms-3">Postularme</a>
+                </div>
+                <button class="boton-menu-movil d-lg-none" id="toggle-menu">☰</button>
+            </nav>
+
+            <!-- Menú Móvil Desplegable -->
+            <div class="menu-movil" id="menu-movil">
+                <a href="#caracteristicas" class="enlace-menu-movil">Características</a>
+                <a href="#catalogo" class="enlace-menu-movil">Mascotas</a>
+                <a href="#como-funciona" class="enlace-menu-movil">Cómo Funciona</a>
+                <a href="contacto.html" class="enlace-menu-movil">Contacto</a>
+                <a href="postulaciones.html" class="enlace-menu-movil">Postulaciones</a>
+                <a href="postulacion.html" class="boton-primario-movil">Postularme</a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container-lg">
-            <h1 class="display-4 fw-bold text-white mb-3">Encuentra Tu Mascota Perfecta</h1>
-            <p class="lead text-white-50 mb-4">Adopta responsablemente y sé parte de una comunidad dedicada a dar los mejores hogares a nuestros amigos peludos</p>
-            <a href="catalogo.html" class="btn btn-light btn-lg">Explorar Mascotas</a>
-        </div>
-    </section>
-
-    <!-- Estadísticas -->
-    <section class="py-5">
-        <div class="container-lg">
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body py-5">
-                            <h3 class="display-5 fw-bold text-danger mb-2">1,245+</h3>
-                            <p class="text-muted mb-0">Mascotas Adoptadas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body py-5">
-                            <h3 class="display-5 fw-bold text-danger mb-2">850+</h3>
-                            <p class="text-muted mb-0">Familias Felices</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body py-5">
-                            <h3 class="display-5 fw-bold text-danger mb-2">15+</h3>
-                            <p class="text-muted mb-0">Años de Servicio</p>
-                        </div>
-                    </div>
+    <section class="seccion-heroe">
+        <div class="container">
+            <div class="contenido-heroe">
+                <h1 class="titulo-heroe">Encuentra tu Mascota Perfecta</h1>
+                <p class="subtitulo-heroe">Conectamos a mascotas necesitadas con familias amorosas. Dale a una mascota un hogar lleno de amor.</p>
+                <div class="botones-heroe">
+                    <a href="#catalogo" class="boton-secundario">Ver Mascotas</a>
+                    <a href="postulacion.html" class="boton-terciario">Postularme Ahora</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mascotas Destacadas -->
-    <section class="py-5 bg-light">
-        <div class="container-lg">
-            <h2 class="fw-bold mb-2 text-center">Mascotas Destacadas</h2>
-            <p class="text-muted text-center mb-5">Conoce a nuestros amiguitos que buscan un hogar lleno de amor</p>
-            
-            <div class="row g-4" id="mascotas-container">
-                <!-- Las mascotas se cargarán aquí con JavaScript -->
-            </div>
-
-            <div class="text-center mt-5">
-                <a href="catalogo.html" class="btn btn-danger btn-lg">Ver Todas las Mascotas</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proceso de Adopción -->
-    <section class="py-5">
-        <div class="container-lg">
-            <h2 class="fw-bold mb-2 text-center">¿Cómo Adoptar?</h2>
-            <p class="text-muted text-center mb-5">Nuestro proceso es simple y seguro para garantizar el mejor hogar para cada mascota</p>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem; font-weight: bold;">1</div>
-                        <h5 class="fw-bold">Explora</h5>
-                        <p class="text-muted small">Navega por nuestro catálogo de mascotas disponibles y encuentra tu compañero perfecto.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem; font-weight: bold;">2</div>
-                        <h5 class="fw-bold">Solicita</h5>
-                        <p class="text-muted small">Completa el formulario de adopción con tus datos y preferencias de mascota.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem; font-weight: bold;">3</div>
-                        <h5 class="fw-bold">Entrevista</h5>
-                        <p class="text-muted small">Nos comunicaremos para hacer seguimiento y asegurar el mejor match.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="text-center">
-                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem; font-weight: bold;">4</div>
-                        <h5 class="fw-bold">¡Adopta!</h5>
-                        <p class="text-muted small">Completa el proceso y lleva a tu nueva mascota a casa para ser felices juntos.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beneficios -->
-    <section class="py-5 bg-light">
-        <div class="container-lg">
-            <h2 class="fw-bold mb-2 text-center">¿Por Qué Adoptar con AdopYa?</h2>
-            <p class="text-muted text-center mb-5">Descubre los beneficios de elegir AdopYa para tu adopción</p>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">❤️</div>
-                            <h5 class="fw-bold">Mascotas Verificadas</h5>
-                            <p class="text-muted small">Todas nuestras mascotas han sido revisadas por veterinarios certificados.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">🏥</div>
-                            <h5 class="fw-bold">Apoyo Veterinario</h5>
-                            <p class="text-muted small">Recibirás asesoría veterinaria gratuita durante el primer mes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">📋</div>
-                            <h5 class="fw-bold">Documentos Legales</h5>
-                            <p class="text-muted small">Incluye transferencia de registro y documentación completa.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">🤝</div>
-                            <h5 class="fw-bold">Comunidad</h5>
-                            <p class="text-muted small">Únete a nuestra comunidad de familias adoptantes para compartir experiencias.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">🎁</div>
-                            <h5 class="fw-bold">Kit de Bienvenida</h5>
-                            <p class="text-muted small">Recibe un kit con alimento, juguetes y accesorios para tu mascota.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center">
-                            <div style="font-size: 3rem; margin-bottom: 15px;">💬</div>
-                            <h5 class="fw-bold">Soporte Continuo</h5>
-                            <p class="text-muted small">Estamos aquí para ayudarte con cualquier pregunta sobre tu mascota.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section class="py-5">
-        <div class="container-lg">
-            <h2 class="fw-bold mb-2 text-center">Lo Que Dicen Nuestras Familias</h2>
-            <p class="text-muted text-center mb-5">Historias reales de familias que han transformado sus vidas</p>
-            
+    <!-- Características -->
+    <section class="seccion-caracteristicas" id="caracteristicas">
+        <div class="container">
+            <h2 class="titulo-seccion">¿Por qué elegirnos?</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <p class="card-text fst-italic">"Adoptar a Rocky fue la mejor decisión de nuestras vidas. El equipo de AdopYa fue muy profesional y atento en todo momento."</p>
-                            <p class="fw-bold text-danger mb-0">— María Rodríguez</p>
-                        </div>
+                    <div class="caracteristica">
+                        <div class="icono-caracteristica">💚</div>
+                        <h3 class="titulo-caracteristica">Proceso Seguro</h3>
+                        <p class="descripcion-caracteristica">Verificamos a los adoptantes para asegurar que nuestras mascotas vayan a hogares seguros y amorosos.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <p class="card-text fst-italic">"La gata Michi nos ha traído tanta alegría a la casa. Gracias a AdopYa por facilitar este proceso tan especial."</p>
-                            <p class="fw-bold text-danger mb-0">— Juan Carlos López</p>
-                        </div>
+                    <div class="caracteristica">
+                        <div class="icono-caracteristica">🏥</div>
+                        <h3 class="titulo-caracteristica">Mascotas Saludables</h3>
+                        <p class="descripcion-caracteristica">Todas nuestras mascotas cuentan con atención veterinaria, vacunas y desparasitación completa.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body">
-                            <p class="card-text fst-italic">"No sabíamos qué esperar, pero AdopYa hizo todo fácil. Nuestro perro ya es parte de la familia."</p>
-                            <p class="fw-bold text-danger mb-0">— Ana Martínez</p>
-                        </div>
+                    <div class="caracteristica">
+                        <div class="icono-caracteristica">📞</div>
+                        <h3 class="titulo-caracteristica">Apoyo Continuo</h3>
+                        <p class="descripcion-caracteristica">Te acompañamos antes, durante y después de la adopción con asesoramiento profesional.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Catálogo Completo -->
+    <section class="seccion-catalogo" id="catalogo">
+        <div class="container">
+            <div class="titulo-seccion-catalogo">
+                <h2 class="titulo-seccion">Nuestro Catálogo Completo</h2>
+                <p class="subtitulo-catalogo">Conoce a todas nuestras mascotas esperando un hogar</p>
+            </div>
+
+            <!-- Panel de Filtros -->
+            <div class="panel-filtros">
+                <h3 class="titulo-filtros">Filtros de Búsqueda</h3>
+                
+                <div class="filtros-contenedor">
+                    <!-- Búsqueda por nombre -->
+                    <div class="grupo-filtro">
+                        <label for="busqueda-nombre" class="etiqueta-filtro">Búsqueda por Nombre</label>
+                        <input 
+                            type="text" 
+                            id="busqueda-nombre" 
+                            class="entrada-filtro" 
+                            placeholder="Ej: Max, Luna..."
+                        >
+                    </div>
+
+                    <!-- Filtro por especie -->
+                    <div class="grupo-filtro">
+                        <label for="filtro-especie" class="etiqueta-filtro">Especie</label>
+                        <select id="filtro-especie" class="entrada-filtro">
+                            <option value="">Todas las especies</option>
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtro por edad -->
+                    <div class="grupo-filtro">
+                        <label for="filtro-edad" class="etiqueta-filtro">Edad</label>
+                        <select id="filtro-edad" class="entrada-filtro">
+                            <option value="">Todas las edades</option>
+                            <option value="bebe">Bebé (menos de 2 años)</option>
+                            <option value="adulto">Adulto (2-5 años)</option>
+                            <option value="senior">Senior (más de 5 años)</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtro por tamaño -->
+                    <div class="grupo-filtro">
+                        <label for="filtro-tamaño" class="etiqueta-filtro">Tamaño</label>
+                        <select id="filtro-tamaño" class="entrada-filtro">
+                            <option value="">Todos los tamaños</option>
+                            <option value="pequeño">Pequeño</option>
+                            <option value="mediano">Mediano</option>
+                            <option value="grande">Grande</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="botones-filtros">
+                    <button id="boton-filtrar" class="boton-filtrar">Aplicar Filtros</button>
+                    <button id="boton-reiniciar" class="boton-reiniciar">Reiniciar</button>
+                </div>
+
+                <!-- Contador de resultados -->
+                <div class="contador-resultados">
+                    <p id="contador-resultados">Mostrando 12 mascotas</p>
+                </div>
+            </div>
+
+            <!-- Mascotas -->
+            <div class="row g-4" id="contenedor-mascotas">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cómo Funciona -->
+    <section class="seccion-como-funciona" id="como-funciona">
+        <div class="container">
+            <h2 class="titulo-seccion">¿Cómo Funciona el Proceso?</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="paso">
+                        <div class="numero-paso">1</div>
+                        <h3 class="titulo-paso">Explora Mascotas</h3>
+                        <p class="descripcion-paso">Navega por nuestro catálogo y encuentra la mascota que toque tu corazón.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="paso">
+                        <div class="numero-paso">2</div>
+                        <h3 class="titulo-paso">Postúlate</h3>
+                        <p class="descripcion-paso">Completa el formulario de postulación con la información de tu hogar.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="paso">
+                        <div class="numero-paso">3</div>
+                        <h3 class="titulo-paso">Somos Revisados</h3>
+                        <p class="descripcion-paso">Revisamos tu solicitud para asegurar un buen hogar.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="paso">
+                        <div class="numero-paso">4</div>
+                        <h3 class="titulo-paso">¡Adopta!</h3>
+                        <p class="descripcion-paso">¡Recibe a tu nueva mascota y comienza tu aventura juntos!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoptar Ya -->
+    <section class="container mt-5">
+        <div class="seccion-llamada-accion">
+            <h2 class="titulo-llamada">¿Listo para Cambiar una Vida?</h2>
+            <p class="subtitulo-llamada">Miles de mascotas esperan un hogar. Sé parte de su historia.</p>
+            <a href="postulacion.html" class="boton-secundario">Comenzar Adopción</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4 mt-5">
-        <div class="container-lg">
-            <p class="mb-2">© 2024 AdopYa. Todos los derechos reservados.</p>
-            <p class="text-muted small mb-0">Adoptando mascotas responsablemente desde 2011 | Cambiando vidas, uno hogar a la vez</p>
+    <footer class="pie-pagina">
+        <div class="container">
+            <div class="derechos-reservados">
+                <p>&copy; 2026 AdopYa. Todos los derechos reservados. Hecho con amor para los animales.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Catalogo JS -->
     <script src="js/catalogo.js"></script>
+    <script>
+        // Funcionalidad del menú móvil
+        const toggleMenu = document.getElementById('toggle-menu');
+        const menuMovil = document.getElementById('menu-movil');
+        const enlacesMenu = document.querySelectorAll('.enlace-menu-movil');
+
+        toggleMenu.addEventListener('click', () => {
+            menuMovil.classList.toggle('activo');
+        });
+
+        enlacesMenu.forEach(enlace => {
+            enlace.addEventListener('click', () => {
+                menuMovil.classList.remove('activo');
+            });
+        });
+
+        // Cerrar menú cuando se hace scroll
+        window.addEventListener('scroll', () => {
+            menuMovil.classList.remove('activo');
+        });
+    </script>
 </body>
 </html>
