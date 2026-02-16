@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Postulación - AdopYa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <!-- NavBar -->
+    <header class="encabezado">
+        <div class="container">
+            <nav class="barra-navegacion">
+                <a href="index.html" class="logotipo">AdopYa</a>
+                <div class="menu-desktop d-none d-md-flex align-items-center">
+                    <a href="index.html#caracteristicas" class="enlace-navegacion">Características</a>
+                    <a href="index.html#catalogo" class="enlace-navegacion">Mascotas</a>
+                    <a href="index.html#como-funciona" class="enlace-navegacion">Cómo Funciona</a>
+                    <a href="contacto.html" class="enlace-navegacion">Contacto</a>
+                    <a href="postulaciones.html" class="enlace-navegacion">Postulaciones</a>
+                    <a href="postulacion.html" class="boton-primario ms-3">Postularme</a>
+                </div>
+                <button class="boton-menu-movil d-md-none" id="toggle-menu">☰</button>
+            </nav>
+
+            <!-- Menú Móvil Desplegable -->
+            <div class="menu-movil" id="menu-movil">
+                <a href="index.html#caracteristicas" class="enlace-menu-movil">Características</a>
+                <a href="index.html#catalogo" class="enlace-menu-movil">Mascotas</a>
+                <a href="index.html#como-funciona" class="enlace-menu-movil">Cómo Funciona</a>
+                <a href="contacto.html" class="enlace-menu-movil">Contacto</a>
+                <a href="postulaciones.html" class="enlace-menu-movil">Postulaciones</a>
+                <a href="postulacion.html" class="boton-primario-movil">Postularme</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Postulación -->
+    <section class="seccion-postulacion">
+        <div class="container">
+            <div class="contenedor-formulario">
+                <h1 class="titulo-postulacion">Postulación para Adopción</h1>
+                <p class="subtitulo-postulacion">Completa el formulario para postularte y captar la atención de tu nueva mascota</p>
+
+                <!-- Alerta de éxito -->
+                <div class="alerta-exito" id="alerta-exito">
+                    <strong>¡Excelente!</strong> Tu postulación ha sido guardada correctamente. Te contactaremos pronto.
+                </div>
+
+                <!-- Alerta de error -->
+                <div class="alerta-error" id="alerta-error">
+                    <strong>Error:</strong> <span id="texto-error">Por favor revisa los campos requeridos</span>
+                </div>
+
+                <form id="formulario-postulacion" novalidate>
+                    <!-- Nombre Completo -->
+                    <div class="grupo-formulario">
+                        <label for="nombre-completo" class="etiqueta-campo">
+                            Nombre Completo <span class="etiqueta-requerido">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nombre-completo" 
+                            name="nombre" 
+                            class="campo-formulario" 
+                            placeholder="Juan Pérez García"
+                            required
+                        >
+                        <div class="mensaje-error" id="error-nombre">El nombre completo es obligatorio</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="grupo-formulario">
+                        <label for="email" class="etiqueta-campo">
+                            Email <span class="etiqueta-requerido">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="campo-formulario" 
+                            placeholder="correo@ejemplo.com"
+                            required
+                        >
+                        <div class="mensaje-error" id="error-email">Por favor ingresa un email válido</div>
+                    </div>
+
+                    <!-- Mascota Seleccionada -->
+                    <div class="grupo-formulario">
+                        <label for="mascota-seleccionada" class="etiqueta-campo">
+                            Mascota a Adoptar <span class="etiqueta-requerido">*</span>
+                        </label>
+                        <select 
+                            id="mascota-seleccionada" 
+                            name="mascota" 
+                            class="campo-formulario"
+                            required
+                        >
+                            <option value="">-- Selecciona una mascota --</option>
+                        </select>
+                        <div class="mensaje-error" id="error-mascota">Debes seleccionar una mascota</div>
+                        <div class="info-mascota-seleccionada" id="info-mascota">
+                            <strong>Mascota:</strong> <span id="nombre-mascota"></span> 
+                            (<span id="raza-mascota"></span>)
+                        </div>
+                    </div>
+
+                    <!-- Experiencia con Mascotas -->
+                    <div class="grupo-formulario">
+                        <label for="experiencia-mascotas" class="etiqueta-campo">
+                            Experiencia con Mascotas <span class="etiqueta-requerido">*</span>
+                        </label>
+                        <textarea 
+                            id="experiencia-mascotas" 
+                            name="experiencia" 
+                            class="campo-formulario"
+                            placeholder="Cuéntanos sobre tu experiencia con mascotas, qué cuidados has proporcionado..."
+                            required
+                        ></textarea>
+                        <div class="mensaje-error" id="error-experiencia">Este campo es obligatorio</div>
+                        <div class="ayuda-campo">Mínimo 20 caracteres</div>
+                    </div>
+
+                    <!-- Evidencia de Domicilio (URL) -->
+                    <div class="grupo-formulario">
+                        <label for="evidencia-domicilio" class="etiqueta-campo">
+                            Evidencia de Domicilio - URL <span style="color: #999;">(Opcional)</span>
+                        </label>
+                        <input 
+                            type="url" 
+                            id="evidencia-domicilio" 
+                            name="evidencia" 
+                            class="campo-formulario" 
+                            placeholder="https://ejemplo.com/documento"
+                        >
+                        <div class="ayuda-campo">Enlace a documento de confirmación de residencia (Google Drive, dropbox, etc.)</div>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="seccion-botones">
+                        <button type="submit" class="boton-enviar" id="boton-enviar">
+                            Enviar Postulación
+                        </button>
+                        <a href="index.html#catalogo" class="boton-cancelar">
+                            Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pie-pagina">
+        <div class="container">
+            <div class="derechos-reservados">
+                <p>&copy; 2026 AdopYa. Todos los derechos reservados. Hecho con amor para los animales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/postulacion.js"></script>
+    
+</body>
+</html>
