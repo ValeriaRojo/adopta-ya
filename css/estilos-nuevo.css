@@ -1,0 +1,260 @@
+/* Estilos Personalizados para AdopYa - Opción Minimalista Verde & Blanco */
+
+:root {
+    --primary-color: #10B981;
+    --secondary-color: #F0F9FF;
+    --accent-color: #06B6D4;
+    --dark-color: #1F2937;
+    --light-color: #F9FAFB;
+}
+
+* {
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1F2937;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mascota Card */
+.mascota-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.mascota-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mascota-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    background: linear-gradient(135deg, #E0F2FE 0%, #CFFAFE 100%);
+}
+
+.mascota-info {
+    padding: 25px;
+}
+
+.mascota-info h5 {
+    color: #1F2937;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.raza {
+    color: #10B981;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.descripcion {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #10B981 !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+}
+
+/* Buttons */
+.btn-danger {
+    background-color: #10B981;
+    border-color: #10B981;
+}
+
+.btn-danger:hover {
+    background-color: #059669;
+    border-color: #047857;
+}
+
+.btn-light {
+    background-color: #F9FAFB;
+    color: #10B981;
+    font-weight: 600;
+}
+
+.btn-light:hover {
+    background-color: #F3F4F6;
+    color: #059669;
+}
+
+/* Cards */
+.card {
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    border: 1px solid #E5E7EB;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+}
+
+/* Section Titles */
+h2 {
+    color: #1F2937;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    color: #FFFFFF;
+}
+
+/* Forms */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    background-color: #F9FAFB;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #10B981;
+    box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25);
+    background-color: #FFFFFF;
+}
+
+/* Footer */
+footer {
+    background-color: #1F2937 !important;
+    margin-top: 5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 300px;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    .mascota-image {
+        font-size: 50px;
+    }
+}
+
+/* Tabla de mascotas */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #10B981;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #F0F9FF;
+}
+
+/* Modal customizado */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    background-color: #10B981;
+    color: white;
+    border: none;
+}
+
+/* Badge */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    background-color: #10B981;
+}
+
+/* Alert */
+.alert {
+    border: none;
+    border-radius: 10px;
+}
+
+.alert-success {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.alert-info {
+    background-color: #CFFAFE;
+    color: #0E7490;
+}
+
+/* List Group */
+.list-group-item {
+    border: 1px solid #E5E7EB;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.list-group-item.active {
+    background-color: #10B981;
+    border-color: #10B981;
+}
+
+/* Proceso números */
+.bg-danger {
+    background-color: #10B981 !important;
+}
+
+/* Texto pálido */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Sección clara */
+.bg-light {
+    background-color: #F9FAFB !important;
+}
+
+/* Enlaces */
+a {
+    color: #10B981;
+}
+
+a:hover {
+    color: #059669;
+}
+
+/* Distinción visual para elementos secundarios */
+.text-danger {
+    color: #10B981 !important;
+}
