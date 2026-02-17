@@ -190,9 +190,9 @@ formulario.addEventListener('submit', function(e) {
     });
 
     // Redirigir después de 2.5 segundos
-    setTimeout(() => {
-        window.location.href = 'index.html';
-    }, 2500);
+    /*setTimeout(() => {
+        window.location.href = '../contacto.html';
+    }, 2000);*/
 });
 
 // Inicializar cuando el documento esté listo
