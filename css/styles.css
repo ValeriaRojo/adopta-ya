@@ -2751,3 +2751,43 @@ select.campo-formulario {
     margin-top: 1rem;
 }
 
+.seccion-quiz {
+    padding: 5rem 0;
+    background-color: var(--color-claro);
+}
+
+.quiz-wrapper {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    border-radius: 30px;
+    padding: 4rem 2rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+    margin: 0 auto;
+    color: white;
+}
+
+.quiz-wrapper .titulo-seccion {
+    color: white;
+    font-size: 2.3rem;
+    margin-bottom: 2rem;
+}
+
+.boton-quiz {
+    background: white;
+    color: var(--color-primario);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.boton-quiz:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    color: var(--color-primario);
+}
+
+
