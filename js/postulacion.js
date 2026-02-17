@@ -290,10 +290,10 @@ formulario.addEventListener('submit', function(e) {
         campo.classList.remove('error', 'exito');
     });
 
-    // Redirigir después de 2.5 segundos
+    /* Redirigir después de 2.5 segundos
     setTimeout(() => {
         window.location.href = 'index.html#catalogo';
-    }, 2500);
+    }, 2500);*/
 });
 
 // Inicializar cuando el documento esté listo

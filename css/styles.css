@@ -2658,11 +2658,35 @@ select.campo-formulario {
     display: block;
 }
 
+/* Footer */    
+.mapa-sitio {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
 
+.mapa-sitio h6 {
+    color: var(--color-secundario);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
 
+.mapa-sitio ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* para que en móvil bajen si no caben */
+    gap: 1.2rem;
+}
 
-   
+.mapa-sitio a {
+    color: #ADB5BD;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
 
-
-    
-    
+.mapa-sitio a:hover {
+    color: var(--color-secundario);
+}
