@@ -211,11 +211,8 @@ function guardarPostulacion() {
 function mostrarAlertaExito() {
     alertaExito.classList.add('mostrar');
     alertaError.classList.remove('mostrar');
-    
-    // Ocultar alerta después de 5 segundos
-    setTimeout(() => {
-        alertaExito.classList.remove('mostrar');
-    }, 5000);
+
+
 }
 
 // Función para mostrar alerta de error

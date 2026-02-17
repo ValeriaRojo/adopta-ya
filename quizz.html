@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué mascota es ideal para ti? - AdopYa</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/icons/bootstrap-icons-1.13.1/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <header class="encabezado">
+        <div class="container">
+            <nav class="barra-navegacion">
+                <a href="index.html" class="logotipo">AdopYa 🐾</a>
+                <div class="menu-desktop d-none d-lg-flex align-items-center">
+                    <a href="index.html#caracteristicas" class="enlace-navegacion">¿Por qué elegirnos?</a>
+                    <a href="index.html#mascotas" class="enlace-navegacion">Mascotas</a>
+                    <a href="index.html#catalogo" class="enlace-navegacion">Catálogo</a>
+                    <a href="index.html#como-funciona" class="enlace-navegacion">Cómo Funciona</a>
+                    <a href="contacto.html" class="enlace-navegacion">Contacto</a>
+                    <a href="postulacion.html" class="boton-primario ms-3">Postularme</a>
+                </div>
+                <button class="boton-menu-movil d-lg-none" id="toggle-menu">☰</button>
+            </nav>
+
+            <!-- Menú Móvil Desplegable -->
+            <div class="menu-movil" id="menu-movil">
+                <a href="#caracteristicas" class="enlace-menu-movil">¿Por qué elegirnos?</a>
+                <a href="#catalogo" class="enlace-menu-movil">Mascotas</a>
+                <a href="#como-funciona" class="enlace-menu-movil">Cómo Funciona</a>
+                <a href="contacto.html" class="enlace-menu-movil">Contacto</a>
+                <a href="postulaciones.html" class="enlace-menu-movil">Postulaciones</a>
+                <a href="postulacion.html" class="boton-primario-movil">Postularme</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion-caracteristicas">
+            <div class="container">
+                <h1 class="titulo-seccion">¿Cuál es tu mascota ideal? 🐶🐱</h1>
+                <p class="subtitulo-postulacion">Responde estas preguntas para descubrir cuál es tu compañero perfecto</p>
+
+                <div class="row" id="quiz-container">
+                    <!-- Pregunta 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="caracteristica">
+                            <div class="icono-caracteristica">❓</div>
+                            <h3 class="titulo-caracteristica">¿Cuál es tu nivel de actividad física?</h3>
+                            <div class="opciones">
+                                <button class="boton-terciariopregunta" data-respuesta="perro">Alto - Me encanta salir a correr</button>
+                                <button class="boton-terciariopregunta" data-respuesta="gato">Moderado - Paseos tranquilos</button>
+                                <button class="boton-terciariopregunta" data-respuesta="otro">Bajo - Prefiero quedarme en casa</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="caracteristica">
+                            <div class="icono-caracteristica">⏰</div>
+                            <h3 class="titulo-caracteristica">¿Cuánto tiempo disponible tienes?</h3>
+                            <div class="opciones">
+                                <button class="boton-terciariopregunta" data-respuesta="perro">Más de 2 horas diarias</button>
+                                <button class="boton-terciariopregunta" data-respuesta="gato">1-2 horas diarias</button>
+                                <button class="boton-terciariopregunta" data-respuesta="otro">Menos de 1 hora diaria</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="caracteristica">
+                            <div class="icono-caracteristica">🏥</div>
+                            <h3 class="titulo-caracteristica">¿Cuidado de mascota?</h3>
+                            <div class="opciones">
+                                <button class="boton-terciariopregunta" data-respuesta="perro">Mucho cuidado</button>
+                                <button class="boton-terciariopregunta" data-respuesta="gato">Independiente</button>
+                                <button class="boton-terciariopregunta" data-respuesta="otro">Cualquiera</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="boton-resultado-quiz" id="ver-resultado">Ver mi resultado</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de resultado -->
+        <section class="seccion-llamada-accion" id="resultado-seccion" style="display: none; margin-top: 3rem;">
+            <div class="container">
+                <h2 class="titulo-llamada" id="resultado-titulo"></h2>
+                <p class="subtitulo-llamada" id="resultado-descripcion"></p>
+                <div class="botones-heroe">
+                    <a href="#catalogo" class="boton-secundario">Ver Mascotas</a>
+                    <a href="postulacion.html" class="boton-terciario">Postularme Ahora</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pie-pagina">
+        <div class="container">
+            <div class="mapa-sitio">
+                <h6>Mapa del sitio</h6>
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house"></i> Inicio</a></li>
+                    <li><a href="#catalogo"><i class="bi bi-book"></i> Catálogo</a></li>
+                    <li><a href="postulacion.html"><i class="bi bi-person"></i> Postulación</a></li>
+                    <li><a href="postulaciones.html"><i class="bi bi-list-check"></i> Postulaciones</a></li>
+                    <li><a href="contacto.html"><i class="bi bi-telephone"></i> Contacto</a></li>
+                </ul>
+            </div>
+            <div class="derechos-reservados">
+                <p>&copy; 2026 AdopYa. Todos los derechos reservados. Hecho con amor para los animales.<i class="bi bi-balloon-heart"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/quizz.js"></script>
+</body>
+</html>
